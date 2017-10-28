@@ -1,21 +1,52 @@
+
+/*********************************************************************************
+* WEB422 – Assignment 04
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of this
+* assignment has been copied manually or electronically from any other source (including web sites) or
+* distributed to other students.
+*
+* Name: Farshad Haddadi Student ID:******* Date: ********
+********************************************************************************/
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainContainer from './Components/MainContainer';
+import Overview from './Components/Overview';
+import Projects from './Components/Projects';
+import Teams from './Components/Teams';
+import Employees from './Components/Employees';
+import { Route, Switch } from 'react-router-dom';
+
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+
+      <Switch>
+
+        <Route exact path='/' render={() => (
+          <Overview />
+        )} />
+
+        <Route exact path='/projects' render={() => (
+          <Projects />
+        )} />
+
+        <Route exact path='/teams' render={() => (
+          <Teams />
+        )} />
+        <Route exact path='/employees' render={() => (
+          <Employees />
+        )} />
+
+        <Route render={() => (
+          <MainContainer sidebar="" />
+        )} />
+
+      </Switch>
+
     );
   }
-}
 
+}
 export default App;
